@@ -7,13 +7,14 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-# Create Jobs with title and description
-# Create Jobs
+
+
 # Clear existing data
-Job.destroy_all
+Job::Event.destroy_all
+Application::Event.destroy_all
 Application.destroy_all
-JobEvent.destroy_all
-ApplicationEvent.destroy_all
+Job.destroy_all
+
 
 # Create Jobs
 job1 = Job.create(title: "Software Engineer", description: "Develop and maintain high-quality software solutions.")
@@ -40,7 +41,7 @@ app8 = Application.create(job: job4, candidate_name: "Grace Lee")
 # Create Application Events
 # Application 1: Interviewed and Hired
 Application::Event::Interview.create(application: app1, interview_date: Time.now - 5.days)
-Application::Event::Hired.create(application: app1, hired_date: Time.now - 3.days)
+Application::Event::Hired.create(application: app1, hire_date: Time.now - 3.days)
 
 # Application 2: Interviewed and Rejected
 Application::Event::Interview.create(application: app2, interview_date: Time.now - 4.days)
@@ -53,7 +54,7 @@ Application::Event::Rejected.create(application: app2)
 Application::Event::Interview.create(application: app4, interview_date: Time.now - 2.days)
 
 # Application 5: Hired
-Application::Event::Hired.create(application: app5, hired_date: Time.now - 1.day)
+Application::Event::Hired.create(application: app5, hire_date: Time.now - 1.day)
 
 # Application 6: Rejected
 Application::Event::Rejected.create(application: app6)
@@ -63,7 +64,7 @@ Application::Event::Note.create(application: app7, content: "Strong communicatio
 
 # Application 8: Multiple Events (Interview -> Hired -> Rejected)
 Application::Event::Interview.create(application: app8, interview_date: Time.now - 3.days)
-Application::Event::Hired.create(application: app8, hired_date: Time.now - 2.days)
+Application::Event::Hired.create(application: app8, hire_date: Time.now - 2.days)
 Application::Event::Rejected.create(application: app8)
 
 # Add More Data for Testing
@@ -79,7 +80,7 @@ Application::Event::Rejected.create(application: app8)
     when 0
       Application::Event::Interview.create(application: app, interview_date: Time.now - (i + j).days)
     when 1
-      Application::Event::Hired.create(application: app, hired_date: Time.now - (i + j).days)
+      Application::Event::Hired.create(application: app, hire_date: Time.now - (i + j).days)
     when 2
       Application::Event::Rejected.create(application: app)
     end

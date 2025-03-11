@@ -1,13 +1,10 @@
 .bundle
-db/*.sqlite3*
-log/*.log
 *.log
-tmp/
+applicant_tracking_system/tmp/
 doc/
 *.swp
 *~
 .project
 .DS_Store
 log/
-storage/development.sqlite3
-storage/test.sqlite3
+applicant_tracking_system/storage/*.sqlite3*
