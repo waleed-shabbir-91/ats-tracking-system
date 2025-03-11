@@ -9,3 +9,5 @@ doc/
 .project
 .DS_Store
 log/
+storage/development.sqlite3
+storage/test.sqlite3
