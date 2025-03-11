@@ -33,7 +33,7 @@ This is a simple Applicant Tracking System (ATS) built with Ruby on Rails.
 1. **Clone the repository**:
    ```bash
    git clone git@github.com:waleed-shabbir-91/ats-tracking-system.git
-   cd applicant-tracking-system
+   cd cd ats-tracking-system/applicant_tracking_system
    ```
 2. **Install dependencies**:
    ```bash
