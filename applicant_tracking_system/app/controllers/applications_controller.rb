@@ -4,7 +4,7 @@ class ApplicationsController < ApplicationController
     activated_jobs = Job.joins(:events).where(job_events: { type: 'Job::Event::Activated' })
 
     # Get applications for activated jobs
-    applications = Application.where(job: activated_jobs).includes(:events, :job)
+    applications = Application.where(job: activated_jobs)
 
     # Map the applications to the required JSON structure
     render json: applications.map { |app|

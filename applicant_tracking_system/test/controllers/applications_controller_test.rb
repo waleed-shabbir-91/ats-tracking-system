@@ -34,7 +34,7 @@ class ApplicationsControllerTest < ActionDispatch::IntegrationTest
     application = applications.first
     assert_equal @activated_job.title, application['job_title']
     assert_equal @application1.candidate_name, application['candidate_name']
-    assert_equal 'note', application['status']
+    assert_equal 'hired', application['status']
     assert_equal 1, application['notes_count']
     assert_not_nil application['last_interview_date']
     assert_not_nil application['hire_date']

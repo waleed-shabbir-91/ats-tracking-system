@@ -4,7 +4,7 @@ class Application < ApplicationRecord
 
   # Define the status method
   def status
-    last_event = events.last
+    last_event = events.where.not(type: 'Application::Event::Note').last
     if last_event.nil?
       'applied'
     else
